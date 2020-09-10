@@ -1,21 +1,38 @@
-import React from 'react';
-import Button from '.';
+import React from "react";
+import Button from ".";
 
+// Args Setup
 const Template = (args) => <Button {...args} />;
 
-export const Primary = Template.bind({});
+export const Playground = Template.bind({});
 
-Primary.args = {
-    type: "submit",
-    text: 'Primary',
-  };
+const buttonTypes = {
+  SUBMIT: 'submit',
+  INPUT: 'input'
+}
 
+Playground.args = {
+  type: buttonTypes.INPUT,
+  text: "Primary",
+};
 
-export const DefaultStory = () => <Button type="button" text="Click me" />
+Playground.argTypes = {
+  type: {
+    control: {
+      type: "select",
+      options: [buttonTypes.INPUT, buttonTypes.SUBMIT]
+    }
+  },
+  text: {
+    control: "text"
+  }
+}
+
+export const DefaultStory = () => <Button type="button" text="Click me" />;
 
 DefaultStory.storyName = "Default";
 
 export default {
-    title: "Components/Button",
-    component: DefaultStory
-}
+  title: "Components/Button",
+  component: DefaultStory,
+};

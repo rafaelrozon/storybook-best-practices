@@ -1,7 +1,10 @@
 import React from 'react';
 
 const Button = ({ text, type }) => (
-    <button type={type}>{text}</button>
+    <>
+        <p>type is: {type}</p>
+        <button type={type}>{text}</button>
+    </>
 );
 
 export default Button;
